@@ -27,7 +27,10 @@ app.use(cors());
 app.use(cookieParser());
 
 // database connection:
-mongoose.connect(process.env.DB_URL).then(() => {
+mongoose.connect(process.env.DB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
     console.log("Connected to database...");
 }).catch((err) => {
     console.log(err);
